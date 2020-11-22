@@ -8,5 +8,3 @@ template<typename ElemType>int lessThan(ElemType e1, ElemType e2);
 template<class ElemType>
 class SqList;
 
-
-

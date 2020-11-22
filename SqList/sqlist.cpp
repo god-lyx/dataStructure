@@ -2,7 +2,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
-//#include <iomainp>
+#include"sqlist.h"
 
 template<class ElemType>
 class SqList
@@ -27,7 +27,6 @@ public:
     int inputList(int=8);
     void dispList();//打印顺序表
 };
-
 
 template<class ElemType>
 SqList<ElemType>::SqList()

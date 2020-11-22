@@ -1,4 +1,4 @@
-#include "sqlist.h"
+#include "sqlist.cpp"
 #include<iostream>
 using namespace std;
 
