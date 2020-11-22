@@ -1,50 +1,23 @@
+# pragma warning (disable:4819)
 #include <sqlist.h>
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
-//#include <iomainp>
-
-template<class ElemType>
-class SqList
-{
-private:
-    ElemType       *elem;//指向元素地址
-    int            length;//顺序表当前长度
-    int            listsize;//最大容量
-public:
-    SqList();//为顺序表分配内存
-    ~SqList();
-    int insertElem(ElemType e, int i);//在第i位之前插入元素e
-    int listEmpty();//判断线性表是否为空
-    int getElem(int i, ElemType &e);//取第i个元素；
-    int compareElem(ElemType e, int (*compare)(ElemType, ElemType));//返回第一个与e满足compare关系的元素序号
-    int getPrevious(ElemType e, ElemType &e2);
-    int getNext(ElemType e, ElemType &e2);//取某元素的前驱、后继，用e2返回   
-    int deleteElem(int i,ElemType &e);//删除第i个元素
-    int inheratateList(SqList<ElemType> &L2);//将本顺序表赋值给另一个顺序表
-    int emptyList();//置空顺序表
-    int spawnList(int=8/*默认长度为8*/);
-    int inputList(int=8);
-    void dispList();//打印顺序表
-};
 
 
-template<class ElemType>
-SqList<ElemType>::SqList()
+SqList::SqList()
 {
     listsize = LISTMAXSIZE;
     elem = new ElemType[listsize];
     length = 0;
 }
 
-template<class ElemType>
-SqList<ElemType>::~SqList()
+SqList::~SqList()
 {
     delete[] elem;
 }
 
-template<class ElemType>
-int SqList<ElemType>::insertElem(ElemType e, int i)
+int SqList::insertElem(ElemType e, int i)
 {
     ElemType *newbase; int istart, iend;
     if(i<1||i>length+1)return 0;//元素位置不合法
@@ -67,37 +40,31 @@ int SqList<ElemType>::insertElem(ElemType e, int i)
     return 1;//插入成功
 }
 
-template<class ElemType>
-int SqList<ElemType>::listEmpty(){
+int SqList::listEmpty(){
     if (length == 0) return 1;//空
     return 0;//非空
 }
 
-template<class ElemType>
-int SqList<ElemType>::getElem(int i, ElemType &e)
+int SqList::getElem(int i, ElemType &e)
 {
     if(i<1||i>length)return 0;//位置无效
     e = elem[i-1];
     return 1;//获取成功
 }
 
-template<typename ElemType>
 int equal(ElemType e1, ElemType e2){
     return (e1==e2)?(1):(0);
 }
 
-template<typename ElemType>
 int greaterThan(ElemType e1, ElemType e2){
     return (e1>e2)?(1):(0);
 }
 
-template<typename ElemType>
 int lessThan(ElemType e1, ElemType e2){
     return (e1<e2)?(1):(0);
 }
 
-template<class ElemType>
-int SqList<ElemType>::compareElem(ElemType e, int (*compare)(ElemType, ElemType))
+int SqList::compareElem(ElemType e, int (*compare)(ElemType, ElemType))
 {
     int i;
     for(i=0;i<length;i++){
@@ -106,22 +73,19 @@ int SqList<ElemType>::compareElem(ElemType e, int (*compare)(ElemType, ElemType)
     return 0;//没有匹配
 }
 
-template<class ElemType>
-int SqList<ElemType>::getPrevious(ElemType e, ElemType &e2)
+int SqList::getPrevious(ElemType e, ElemType &e2)
 {
     int i = compareElem(e, equal) - 1;//前一个元素的i
     return getElem(i, e2);
 }
 
-template<class ElemType>
-int SqList<ElemType>::getNext(ElemType e, ElemType &e2)
+int SqList::getNext(ElemType e, ElemType &e2)
 {
     int i = compareElem(e, equal) + 1;//后一个元素的i
     return getElem(i, e2);
 }
 
-template<class ElemType>
-int SqList<ElemType>::deleteElem(int i, ElemType &e)
+int SqList::deleteElem(int i, ElemType &e)
 {
     int j;
     if(i<1||i>length)return 0;
@@ -133,8 +97,7 @@ int SqList<ElemType>::deleteElem(int i, ElemType &e)
     return 1;
 }
 
-template<class ElemType>
-int SqList<ElemType>::inheratateList(SqList<ElemType> &L2)
+int SqList::inheratateList(SqList &L2)
 {
     int i;
     for(i=0;i<length;i++)
@@ -145,15 +108,13 @@ int SqList<ElemType>::inheratateList(SqList<ElemType> &L2)
     return 1;
 }
 
-template<class ElemType>
-int SqList<ElemType>::emptyList()
+int SqList::emptyList()
 {
     length = 0;
     return 1;//用已有函数判断是否置空
 }
 
-template<class ElemType>
-int SqList<ElemType>::spawnList(int l)
+int SqList::spawnList(int l)
 {
     int i;
     if(emptyList()){
@@ -167,8 +128,7 @@ int SqList<ElemType>::spawnList(int l)
     else return 0;
 }
 
-template<class ElemType>
-int SqList<ElemType>::inputList(int l)
+int SqList::inputList(int l)
 {
     int i, input;
     emptyList();
@@ -181,8 +141,7 @@ int SqList<ElemType>::inputList(int l)
     return 1;
 }
 
-template<class ElemType>
-void SqList<ElemType>::dispList()
+void SqList::dispList()
 {
     int i;
     if(length==0){std::cout<<"空表"<<std::endl;return;}

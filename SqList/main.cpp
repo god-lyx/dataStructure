@@ -5,7 +5,7 @@ using namespace std;
 int main(){
     int option, i, e, e2;
     printf("*******顺序表操作*******\n");
-    SqList<int> L, L2;
+    SqList L, L2;
     while(1)
     {
     cout<<"当前顺序表为";
