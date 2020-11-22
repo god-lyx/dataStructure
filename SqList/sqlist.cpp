@@ -3,6 +3,19 @@
 #include <cstdlib>
 #include <ctime>
 #include"sqlist.h"
+#include <iomanip>
+
+struct Student
+{
+    int series=0;//学号
+    std::string name="";//姓名
+    int Chinese=0;
+    int English=0;
+    int Math=0;
+    float Average=(Chinese+English+Math) /3;
+    int Total = Chinese + English + Math;
+};//定义学生数据类型结构体
+
 
 template<class ElemType>
 class SqList
@@ -26,6 +39,8 @@ public:
     int spawnList(int=8/*默认长度为8*/);
     int inputList(int=8);
     void dispList();//打印顺序表
+    int studentInput(ElemType& Stu);//输入单个学生的信息，引用传递给Stu
+    void dispStu();//没办法 只能单独给学生表写个打印函数了……
 };
 
 template<class ElemType>
@@ -197,4 +212,37 @@ void SqList<ElemType>::dispList()
     }
     printf("\n");
 
+}
+
+template<class ElemType>
+int SqList<ElemType>::studentInput(ElemType &Stu)
+{
+    std::cout<<"请输入该学生的学号：";
+    std::cin>>Stu.series;
+    std::cout<<std::endl;
+    std::cout<<"姓名：";
+    std::cin>>Stu.name;
+    std::cout<<std::endl;
+    std::cout<<"语文成绩："<<std::endl;
+    std::cin>>Stu.Chinese;
+    std::cout<<std::endl;
+    std::cout<<"英语成绩"<<std::endl;
+    std::cin>>Stu.English;
+    std::cout<<std::endl;
+    std::cout<<"数学成绩："<<std::endl;
+    std::cin>>Stu.Math;
+    std::cout>>std::endl;
+    return 1;
+}
+
+template<class ElemType>
+void SqList<ElemType>::dispStu()
+{
+    int i;
+    if(length==0){std::cout<<"空表"<<std::endl;return;}
+    std::cout<<"打印学生信息"<<std::endl;
+    std::cout<<" 学号   姓名   语文   英语   数学   平均分   总分"<<endl;
+    for(i=0;i<length;i++){
+        cout<<" "<<
+    }
 }
