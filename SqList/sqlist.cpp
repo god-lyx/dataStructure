@@ -2,6 +2,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
+#include<iomanip>
 #include"sqlist.h"
 #include <iomanip>
 
@@ -202,13 +203,13 @@ void SqList<ElemType>::dispList()
     if(length==0){std::cout<<"空表"<<std::endl;return;}
     std::cout<<"当前顺序表元素为："<<std::endl;
     for(i=0;i<length;i++){
-        //std::cout<<"【"<<setw(2)<<i<<"】";
-        printf("【%2d】",i+1);
+        std::cout<<"【"<<std::setw(2)<<i+1<<"】";
+        //printf("【%2d】",i+1);
     }
     std::cout<<std::endl;
     for(i=0;i<length;i++){
-        //std::cout<<"   "<<setw(2)<<elem[i]<<"    "<<std::endl;
-        printf("  %2d  ",elem[i]);
+        std::cout<<"  "<<std::setw(2)<<elem[i]<<"  ";
+        //printf("  %2d  ",elem[i]);
     }
     printf("\n");
 
