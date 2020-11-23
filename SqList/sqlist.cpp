@@ -27,7 +27,6 @@ private:
     int            listsize;//最大容量
 public:
     SqList();//为顺序表分配内存
-    ~SqList();
     int insertElem(ElemType e, int i);//在第i位之前插入元素e
     int listEmpty();//判断线性表是否为空
     int getElem(int i, ElemType &e);//取第i个元素；
@@ -55,11 +54,6 @@ SqList<ElemType>::SqList()
     length = 0;
 }
 
-template<class ElemType>
-SqList<ElemType>::~SqList()
-{
-    delete[] elem;
-}
 
 template<class ElemType>
 int SqList<ElemType>::insertElem(ElemType e, int i)
@@ -262,17 +256,17 @@ void SqList<ElemType>::dispStu()
 template<class ElemType>
 SqList<ElemType> SqList<ElemType>::operator+(SqList<ElemType>&L2)
 {//并运算
-    SqList* pl1, *pl2;
-    ElemType e;
-    int i;
-    if(length>L2.length){pl2=this;pl1=&L2;}
-    else {pl1=this;pl2=&L2;}//指针l1长度小于l2
-    for(i=0;i<pl1->length;i++){
-        if(compareElem(pl1->elem[i],equal)){pl1->deleteElem(i, e);--i;}//移除元素，循环变量减小
-        else continue;
+    SqList<ElemType> L3;
+    int i=0;
+    for(i=0;i<length;i++){
+        if(L2.compareElem(elem[i],equal))continue;
+        else (L3.insertElem(elem[i], 1));
+        }//L中元素匹配到L2中元素则删除
+    i = 0;
+    while (i<L2.length)
+    {
+        L3.insertElem(L2.elem[i], 1);
+        ++i;
     }
-    for(i=0;i<pl2->length;i++){
-        pl1->insertElem(pl2->elem[i], 1);
-    }
-    return *pl1;
+    return L3;
 }

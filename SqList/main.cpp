@@ -5,7 +5,7 @@ using namespace std;
 int main(){
     int option, i, e, e2;
     printf("*******顺序表操作*******\n");
-    SqList<int> L, L2;
+    SqList<int> L, L2, L3;
     while(1)
     {
     cout<<"当前顺序表为";
@@ -132,9 +132,9 @@ int main(){
         L.dispList();
         cout<<"表2：";
         L2.dispList();
-        L = L + L2;
+        L3 = L + L2;
         cout<<"并集为"<<endl;
-        L.dispList();
+        L3.dispList();
         continue;
     
         case 13:
