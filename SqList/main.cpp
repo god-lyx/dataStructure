@@ -4,21 +4,21 @@ using namespace std;
 
 int main(){
     int option, i, e, e2;
-    printf("*******À≥–Ú±Ì≤Ÿ◊˜*******\n");
+    printf("*******È°∫Â∫èË°®Êìç‰Ωú*******\n");
     SqList<int> L, L2;
     while(1)
     {
-    cout<<"µ±«∞À≥–Ú±ÌŒ™";
+    cout<<"ÂΩìÂâçÈ°∫Â∫èË°®‰∏∫";
     L.dispList();
-    printf("≤Ÿ◊˜¥˙¬Î£∫");
+    printf("Êìç‰Ωú‰ª£Á†ÅÔºö");
     scanf("%d", &option);
     switch(option){
         case 1:
-        printf("≤Â»Î‘™ÀÿµƒŒª–Ú£¨÷µ£∫");
+        printf("ÊèíÂÖ•ÂÖÉÁ¥†ÁöÑ‰ΩçÂ∫èÔºåÂÄºÔºö");
         printf("\n");
         scanf("%d %d", &i, &e);
-        if(L.insertElem(e, i))printf("≤Ÿ◊˜≥…π¶£°\n");
-        else printf("≤Ÿ◊˜ ß∞‹°£\n");
+        if(L.insertElem(e, i))printf("Êìç‰ΩúÊàêÂäüÔºÅ\n");
+        else printf("Êìç‰ΩúÂ§±Ë¥•„ÄÇ\n");
         printf("\n");
         L.dispList();
         printf("*********************************************\n");
@@ -27,117 +27,128 @@ int main(){
         printf("*********************************************\n");
         continue;
         case 2:
-        printf("≈–∂œ «∑ÒŒ™ø’±Ì\n");
-        if(L.listEmpty())printf(" «ø’±Ì\n");
-        else printf("∑«ø’\n");
+        printf("Âà§Êñ≠ÊòØÂê¶‰∏∫Á©∫Ë°®\n");
+        if(L.listEmpty())printf("ÊòØÁ©∫Ë°®\n");
+        else printf("ÈùûÁ©∫\n");
         continue;
 
         case 3:
-        printf("»°÷∏∂®Œª–Úµƒ‘™Àÿ£¨«Î ‰»Î∏√Œª÷√£∫");
+        printf("ÂèñÊåáÂÆö‰ΩçÂ∫èÁöÑÂÖÉÁ¥†ÔºåËØ∑ËæìÂÖ•ËØ•‰ΩçÁΩÆÔºö");
         scanf("%d", &i);
-        if(L.getElem(i, e))printf("»°µ√µ⁄%dŒª‘™Àÿ%d\n", i, e);
-        else printf("≤Ÿ◊˜ ß∞‹\n");
+        if(L.getElem(i, e))printf("ÂèñÂæóÁ¨¨%d‰ΩçÂÖÉÁ¥†%d\n", i, e);
+        else printf("Êìç‰ΩúÂ§±Ë¥•\n");
         continue;
 
         case 4:
-        cout<<"±»Ωœ‘™Àÿ"<<endl;
-        cout<<"¥˝±»Ωœ‘™Àÿ"<<endl;
+        cout<<"ÊØîËæÉÂÖÉÁ¥†"<<endl;
+        cout<<"ÂæÖÊØîËæÉÂÖÉÁ¥†"<<endl;
         cin>>e;
-        cout<<"°æ1°øœ‡µ»‘™Àÿ£¨°æ2°ø¥Û”⁄∏√‘™Àÿ£¨°æ3°ø–°”⁄∏√‘™Àÿ"<<endl;
+        cout<<"„Äê1„ÄëÁõ∏Á≠âÂÖÉÁ¥†Ôºå„Äê2„ÄëÂ§ß‰∫éËØ•ÂÖÉÁ¥†Ôºå„Äê3„ÄëÂ∞è‰∫éËØ•ÂÖÉÁ¥†"<<endl;
         cin>>option;
         switch(option){
             case 1:
-            if(!(i = L.compareElem(e, equal)))cout<<"√ª”–∆•≈‰µΩ∏√‘™Àÿ"<<endl;
+            if(!(i = L.compareElem(e, equal)))cout<<"Ê≤°ÊúâÂåπÈÖçÂà∞ËØ•ÂÖÉÁ¥†"<<endl;
             else {
                 L.getElem(i, e);
-                cout<<"µ⁄"<<i<<"Œª‘™Àÿ"<<e<<"¬˙◊„∏√πÿœµ"<<endl;
+                cout<<"Á¨¨"<<i<<"‰ΩçÂÖÉÁ¥†"<<e<<"Êª°Ë∂≥ËØ•ÂÖ≥Á≥ª"<<endl;
                 }
             break;
 
             case 2:
-            if(!(i = L.compareElem(e, greaterThan)))cout<<"√ª”–∆•≈‰µΩ∏√‘™Àÿ"<<endl;
+            if(!(i = L.compareElem(e, greaterThan)))cout<<"Ê≤°ÊúâÂåπÈÖçÂà∞ËØ•ÂÖÉÁ¥†"<<endl;
             else {
                 L.getElem(i, e);
-                cout<<"µ⁄"<<i<<"Œª‘™Àÿ"<<e<<"¬˙◊„∏√πÿœµ"<<endl;
+                cout<<"Á¨¨"<<i<<"‰ΩçÂÖÉÁ¥†"<<e<<"Êª°Ë∂≥ËØ•ÂÖ≥Á≥ª"<<endl;
                 }
             break;
 
             case 3:
-            if(!(i = L.compareElem(e, lessThan)))cout<<"√ª”–∆•≈‰µΩ∏√‘™Àÿ"<<endl;
+            if(!(i = L.compareElem(e, lessThan)))cout<<"Ê≤°ÊúâÂåπÈÖçÂà∞ËØ•ÂÖÉÁ¥†"<<endl;
             else {
                 L.getElem(i, e);
-                cout<<"µ⁄"<<i<<"Œª‘™Àÿ"<<e<<"¬˙◊„∏√πÿœµ"<<endl;
+                cout<<"Á¨¨"<<i<<"‰ΩçÂÖÉÁ¥†"<<e<<"Êª°Ë∂≥ËØ•ÂÖ≥Á≥ª"<<endl;
                 }
             break;
         }
         continue;
 
         case 5:
-        cout<<"»°«∞“ª∏ˆ‘™Àÿ£¨«Î ‰»Îƒø±Í‘™Àÿ"<<endl;
+        cout<<"ÂèñÂâç‰∏Ä‰∏™ÂÖÉÁ¥†ÔºåËØ∑ËæìÂÖ•ÁõÆÊ†áÂÖÉÁ¥†"<<endl;
         cin>>e;
-        if(!L.getPrevious(e, e2))cout<<"≤ª¥Ê‘⁄∏√‘™Àÿ"<<endl;
-        else cout<<"«∞«˝Œ™"<<e2<<endl;
+        if(!L.getPrevious(e, e2))cout<<"‰∏çÂ≠òÂú®ËØ•ÂÖÉÁ¥†"<<endl;
+        else cout<<"ÂâçÈ©±‰∏∫"<<e2<<endl;
         continue;
 
         case 6:
-        cout<<"»°∫Û“ª∏ˆ‘™Àÿ£¨«Î ‰»Îƒø±Í‘™Àÿ"<<endl;
+        cout<<"ÂèñÂêé‰∏Ä‰∏™ÂÖÉÁ¥†ÔºåËØ∑ËæìÂÖ•ÁõÆÊ†áÂÖÉÁ¥†"<<endl;
         cin>>e;
-        if(!L.getNext(e, e2))cout<<"≤ª¥Ê‘⁄∏√‘™Àÿ"<<endl;
-        else cout<<"∫ÛºÃŒ™"<<e2<<endl;
+        if(!L.getNext(e, e2))cout<<"‰∏çÂ≠òÂú®ËØ•ÂÖÉÁ¥†"<<endl;
+        else cout<<"ÂêéÁªß‰∏∫"<<e2<<endl;
         continue;
 
         case 7:
-        cout<<"«Î ‰»Î“™…æ≥˝‘™ÀÿµƒŒª–Ú£∫"<<endl;
+        cout<<"ËØ∑ËæìÂÖ•Ë¶ÅÂà†Èô§ÂÖÉÁ¥†ÁöÑ‰ΩçÂ∫èÔºö"<<endl;
         cin>>i;
-        if(!L.deleteElem(i, e))cout<<"Œª–Ú≤ª∫œ∑®£¨≤Ÿ◊˜ ß∞‹"<<endl;
-        else cout<<"≥…π¶…æ≥˝µ⁄"<<i<<"Œª‘™Àÿ"<<e<<endl;
+        if(!L.deleteElem(i, e))cout<<"‰ΩçÂ∫è‰∏çÂêàÊ≥ïÔºåÊìç‰ΩúÂ§±Ë¥•"<<endl;
+        else cout<<"ÊàêÂäüÂà†Èô§Á¨¨"<<i<<"‰ΩçÂÖÉÁ¥†"<<e<<endl;
         continue;
 
         case 8:
-        cout<<"Ω´À≥–Ú±Ì∏≥÷µ∏¯¡Ì“ª∏ˆÀ≥–Ú±Ì"<<endl;
-        if(!L.inheratateList(L2))cout<<"≤Ÿ◊˜ ß∞‹£°"<<endl;
+        cout<<"Â∞ÜÈ°∫Â∫èË°®ËµãÂÄºÁªôÂè¶‰∏Ä‰∏™È°∫Â∫èË°®"<<endl;
+        if(!L.inheratateList(L2))cout<<"Êìç‰ΩúÂ§±Ë¥•ÔºÅ"<<endl;
         else{
-            cout<<"≤Ÿ◊˜≥…π¶£¨…˙≥…–¬À≥–Ú±Ì£∫";
+            cout<<"Êìç‰ΩúÊàêÂäüÔºåÁîüÊàêÊñ∞È°∫Â∫èË°®Ôºö";
             L2.dispList();
             cout<<endl;
         }
         continue;
 
         case 9:
-        cout<<"÷√ø’µ±«∞À≥–Ú±Ì"<<endl;
-        if(L.emptyList())cout<<"≤Ÿ◊˜≥…π¶"<<endl;
-        else cout<<"≤Ÿ◊˜ ß∞‹"<<endl;
+        cout<<"ÁΩÆÁ©∫ÂΩìÂâçÈ°∫Â∫èË°®"<<endl;
+        if(L.emptyList())cout<<"Êìç‰ΩúÊàêÂäü"<<endl;
+        else cout<<"Êìç‰ΩúÂ§±Ë¥•"<<endl;
         continue;
 
         case 10:
-        cout<<"ÀÊª˙…˙≥…¡–±Ì"<<endl;
-        if(!L.spawnList())cout<<"≤Ÿ◊˜ ß∞‹"<<endl;
+        cout<<"ÈöèÊú∫ÁîüÊàêÂàóË°®"<<endl;
+        if(!L.spawnList())cout<<"Êìç‰ΩúÂ§±Ë¥•"<<endl;
         else{
-            cout<<"¥¥Ω®≥…π¶!"<<endl;
+            cout<<"ÂàõÂª∫ÊàêÂäü!"<<endl;
         }
         continue;
 
         case 11:
-        cout<<" ‰»ÎÀ≥–Ú±Ì:"<<endl;
-        cout<<"«Î ‰»ÎÀ≥–Ú±Ì≥§∂»£®ƒ¨»œ≥§∂»Œ™8£©£∫";
+        cout<<"ËæìÂÖ•È°∫Â∫èË°®:"<<endl;
+        cout<<"ËØ∑ËæìÂÖ•È°∫Â∫èË°®ÈïøÂ∫¶ÔºàÈªòËÆ§ÈïøÂ∫¶‰∏∫8ÔºâÔºö";
         cin>>i;
         cout<<endl;
-        if(!L.inputList(i))cout<<"≤Ÿ◊˜ ß∞‹"<<endl;
-        else cout<<"≤Ÿ◊˜≥…π¶"<<endl;
+        if(!L.inputList(i))cout<<"Êìç‰ΩúÂ§±Ë¥•"<<endl;
+        else cout<<"Êìç‰ΩúÊàêÂäü"<<endl;
+        continue;
+
+        case 12:
+        cout<<"Âπ∂ËøêÁÆó"<<endl;
+        cout<<"Ë°®1Ôºö";
+        L.dispList();
+        cout<<"Ë°®2Ôºö";
+        L2.dispList();
+        L = L + L2;
+        cout<<"Âπ∂ÈõÜ‰∏∫"<<endl;
+        L.dispList();
         continue;
     
-        case 12:
-        cout<<"Ω¯»Î—ß…˙–≈œ¢œµÕ≥"<<endl;
+        case 13:
+        cout<<"ËøõÂÖ•Â≠¶Áîü‰ø°ÊÅØÁ≥ªÁªü"<<endl;
         Student Stu;
         SqList<Student> L3;
         while(1){
-            cout<<"µ±«∞—ß…˙±ÌŒ™£∫";
+            cout<<"ÂΩìÂâçÂ≠¶ÁîüË°®‰∏∫Ôºö";
             L3.dispStu();
-            cout<<"«Î ‰»Î≤Ÿ◊˜ ˝£∫";
+            cout<<"ËØ∑ËæìÂÖ•Êìç‰ΩúÊï∞Ôºö";
             cin>>option;
             switch(option){
                 case 1:
-                cout<<" ‰»Î—ß…˙–≈œ¢£∫"<<endl;
+                cout<<"ËæìÂÖ•Â≠¶Áîü‰ø°ÊÅØÔºö"<<endl;
                 L3.inputStudent(Stu);
                 L3.insertElem(Stu,1);
                 continue;
