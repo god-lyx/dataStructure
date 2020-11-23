@@ -8,40 +8,43 @@
 
 struct Student
 {
-    int series=0;//Ñ§ºÅ
-    std::string name="";//ĞÕÃû
+    int series=0;//å­¦å·
+    std::string name="";//å§“å
     int Chinese=0;
     int English=0;
     int Math=0;
     float Average=0;
     int Total = 0;
-};//¶¨ÒåÑ§ÉúÊı¾İÀàĞÍ½á¹¹Ìå
+};//å®šä¹‰å­¦ç”Ÿæ•°æ®ç±»å‹ç»“æ„ä½“
 
 
 template<class ElemType>
 class SqList
 {
 private:
-    ElemType       *elem;//Ö¸ÏòÔªËØµØÖ·
-    int            length;//Ë³Ğò±íµ±Ç°³¤¶È
-    int            listsize;//×î´óÈİÁ¿
+    ElemType       *elem;//æŒ‡å‘å…ƒç´ åœ°å€
+    int            length;//é¡ºåºè¡¨å½“å‰é•¿åº¦
+    int            listsize;//æœ€å¤§å®¹é‡
 public:
-    SqList();//ÎªË³Ğò±í·ÖÅäÄÚ´æ
+    SqList();//ä¸ºé¡ºåºè¡¨åˆ†é…å†…å­˜
     ~SqList();
-    int insertElem(ElemType e, int i);//ÔÚµÚiÎ»Ö®Ç°²åÈëÔªËØe
-    int listEmpty();//ÅĞ¶ÏÏßĞÔ±íÊÇ·ñÎª¿Õ
-    int getElem(int i, ElemType &e);//È¡µÚi¸öÔªËØ£»
-    int compareElem(ElemType e, int (*compare)(ElemType, ElemType));//·µ»ØµÚÒ»¸öÓëeÂú×ãcompare¹ØÏµµÄÔªËØĞòºÅ
+    int insertElem(ElemType e, int i);//åœ¨ç¬¬iä½ä¹‹å‰æ’å…¥å…ƒç´ e
+    int listEmpty();//åˆ¤æ–­çº¿æ€§è¡¨æ˜¯å¦ä¸ºç©º
+    int getElem(int i, ElemType &e);//å–ç¬¬iä¸ªå…ƒç´ ï¼›
+    int compareElem(ElemType e, int (*compare)(ElemType, ElemType));//è¿”å›ç¬¬ä¸€ä¸ªä¸eæ»¡è¶³compareå…³ç³»çš„å…ƒç´ åºå·
     int getPrevious(ElemType e, ElemType &e2);
-    int getNext(ElemType e, ElemType &e2);//È¡Ä³ÔªËØµÄÇ°Çı¡¢ºó¼Ì£¬ÓÃe2·µ»Ø   
-    int deleteElem(int i,ElemType &e);//É¾³ıµÚi¸öÔªËØ
-    int inheratateList(SqList<ElemType> &L2);//½«±¾Ë³Ğò±í¸³Öµ¸øÁíÒ»¸öË³Ğò±í
-    int emptyList();//ÖÃ¿ÕË³Ğò±í
-    int spawnList(int=8/*Ä¬ÈÏ³¤¶ÈÎª8*/);
+    int getNext(ElemType e, ElemType &e2);//å–æŸå…ƒç´ çš„å‰é©±ã€åç»§ï¼Œç”¨e2è¿”å›   
+    int deleteElem(int i,ElemType &e);//åˆ é™¤ç¬¬iä¸ªå…ƒç´ 
+    int inheratateList(SqList<ElemType> &L2);//å°†æœ¬é¡ºåºè¡¨èµ‹å€¼ç»™å¦ä¸€ä¸ªé¡ºåºè¡¨
+    int emptyList();//ç½®ç©ºé¡ºåºè¡¨
+    int spawnList(int=8/*é»˜è®¤é•¿åº¦ä¸º8*/);
     int inputList(int=8);
-    void dispList();//´òÓ¡Ë³Ğò±í
-    int inputStudent(ElemType& Stu);//ÊäÈëµ¥¸öÑ§ÉúµÄĞÅÏ¢£¬ÒıÓÃ´«µİ¸øStu
-    void dispStu();//Ã»°ì·¨ Ö»ÄÜµ¥¶À¸øÑ§Éú±íĞ´¸ö´òÓ¡º¯ÊıÁË¡­¡­
+    SqList<ElemType> operator+(SqList<ElemType>& L);//ç®—ç¬¦é‡è½½ï¼Œå¹¶è¿ç®—
+    //SqList<ElemType> operator^(const SqList<ElemType>& L);//ç®—ç¬¦é‡è½½ï¼Œäº¤è¿ç®—
+    //SqList<ElemType> operator-(const SqList<ElemType>& L);//ç®—ç¬¦é‡è½½ï¼Œå·®è¿ç®—
+    void dispList();//æ‰“å°é¡ºåºè¡¨
+    int inputStudent(ElemType& Stu);//è¾“å…¥å•ä¸ªå­¦ç”Ÿçš„ä¿¡æ¯ï¼Œå¼•ç”¨ä¼ é€’ç»™Stu
+    void dispStu();//æ²¡åŠæ³• åªèƒ½å•ç‹¬ç»™å­¦ç”Ÿè¡¨å†™ä¸ªæ‰“å°å‡½æ•°äº†â€¦â€¦
 };
 
 template<class ElemType>
@@ -62,38 +65,38 @@ template<class ElemType>
 int SqList<ElemType>::insertElem(ElemType e, int i)
 {
     ElemType *newbase; int istart, iend;
-    if(i<1||i>length+1)return 0;//ÔªËØÎ»ÖÃ²»ºÏ·¨
+    if(i<1||i>length+1)return 0;//å…ƒç´ ä½ç½®ä¸åˆæ³•
     if (length + 1 > LISTMAXSIZE)
-    {//³¬³ö×î´óÈİÁ¿£¬À©Èİ
+    {//è¶…å‡ºæœ€å¤§å®¹é‡ï¼Œæ‰©å®¹
         newbase = new ElemType[length+LISTINCREMENT];
-        if(!newbase)return 0;//À©ÈİÊ§°Ü£¬²åÈëÊ§°Ü
+        if(!newbase)return 0;//æ‰©å®¹å¤±è´¥ï¼Œæ’å…¥å¤±è´¥
         for(istart=0;istart<length;istart++){
             newbase[istart] = elem[istart];
-            delete[] elem;//É¾³ıÔ­ÄÚ´æ
-            elem = newbase;//elemÖ¸ÏòĞÂÄÚ´æ¿Õ¼ä
+            delete[] elem;//åˆ é™¤åŸå†…å­˜
+            elem = newbase;//elemæŒ‡å‘æ–°å†…å­˜ç©ºé—´
             listsize += LISTINCREMENT;
         }
     }
     for(iend=length;iend>=i;iend--){
             elem[iend] = elem[iend-1];
-        }//iÖ®ºóÔªËØÏòºóÒÆÎ»
+        }//iä¹‹åå…ƒç´ å‘åç§»ä½
         elem[i-1] = e;
         ++length;
-    return 1;//²åÈë³É¹¦
+    return 1;//æ’å…¥æˆåŠŸ
 }
 
 template<class ElemType>
 int SqList<ElemType>::listEmpty(){
-    if (length == 0) return 1;//¿Õ
-    return 0;//·Ç¿Õ
+    if (length == 0) return 1;//ç©º
+    return 0;//éç©º
 }
 
 template<class ElemType>
 int SqList<ElemType>::getElem(int i, ElemType &e)
 {
-    if(i<1||i>length)return 0;//Î»ÖÃÎŞĞ§
+    if(i<1||i>length)return 0;//ä½ç½®æ— æ•ˆ
     e = elem[i-1];
-    return 1;//»ñÈ¡³É¹¦
+    return 1;//è·å–æˆåŠŸ
 }
 
 template<typename ElemType>
@@ -116,22 +119,22 @@ int SqList<ElemType>::compareElem(ElemType e, int (*compare)(ElemType, ElemType)
 {
     int i;
     for(i=0;i<length;i++){
-        if(compare(elem[i], e))return(i+1);//·µ»ØÎ»ÖÃĞòºÅ£¨´Ó1¿ªÊ¼£©
+        if(compare(elem[i], e))return(i+1);//è¿”å›ä½ç½®åºå·ï¼ˆä»1å¼€å§‹ï¼‰
     }
-    return 0;//Ã»ÓĞÆ¥Åä
+    return 0;//æ²¡æœ‰åŒ¹é…
 }
 
 template<class ElemType>
 int SqList<ElemType>::getPrevious(ElemType e, ElemType &e2)
 {
-    int i = compareElem(e, equal) - 1;//Ç°Ò»¸öÔªËØµÄi
+    int i = compareElem(e, equal) - 1;//å‰ä¸€ä¸ªå…ƒç´ çš„i
     return getElem(i, e2);
 }
 
 template<class ElemType>
 int SqList<ElemType>::getNext(ElemType e, ElemType &e2)
 {
-    int i = compareElem(e, equal) + 1;//ºóÒ»¸öÔªËØµÄi
+    int i = compareElem(e, equal) + 1;//åä¸€ä¸ªå…ƒç´ çš„i
     return getElem(i, e2);
 }
 
@@ -164,7 +167,7 @@ template<class ElemType>
 int SqList<ElemType>::emptyList()
 {
     length = 0;
-    return 1;//ÓÃÒÑÓĞº¯ÊıÅĞ¶ÏÊÇ·ñÖÃ¿Õ
+    return 1;//ç”¨å·²æœ‰å‡½æ•°åˆ¤æ–­æ˜¯å¦ç½®ç©º
 }
 
 template<class ElemType>
@@ -188,7 +191,7 @@ int SqList<ElemType>::inputList(int l)
     int i, input;
     emptyList();
     for(i=0;i<l;i++){
-        std::cout<<"ÇëÊäÈëµÚ"<<i+1<<"¸öÔªËØ£¨¹²"<<l<<"¸ö£©"<<std::endl;
+        std::cout<<"è¯·è¾“å…¥ç¬¬"<<i+1<<"ä¸ªå…ƒç´ ï¼ˆå…±"<<l<<"ä¸ªï¼‰"<<std::endl;
         std::cin>>input;
         if(insertElem(input,i+1))continue;
         else return 0;
@@ -200,11 +203,11 @@ template<class ElemType>
 void SqList<ElemType>::dispList()
 {
     int i;
-    if(length==0){std::cout<<"¿Õ±í"<<std::endl;return;}
-    std::cout<<"µ±Ç°Ë³Ğò±íÔªËØÎª£º"<<std::endl;
+    if(length==0){std::cout<<"ç©ºè¡¨"<<std::endl;return;}
+    std::cout<<"å½“å‰é¡ºåºè¡¨å…ƒç´ ä¸ºï¼š"<<std::endl;
     for(i=0;i<length;i++){
-        std::cout<<"¡¾"<<std::setw(2)<<i+1<<"¡¿";
-        //printf("¡¾%2d¡¿",i+1);
+        std::cout<<"ã€"<<std::setw(2)<<i+1<<"ã€‘";
+        //printf("ã€%2dã€‘",i+1);
     }
     std::cout<<std::endl;
     for(i=0;i<length;i++){
@@ -218,19 +221,19 @@ void SqList<ElemType>::dispList()
 template<class ElemType>
 int SqList<ElemType>::inputStudent(ElemType &Stu)
 {
-    std::cout<<"ÇëÊäÈë¸ÃÑ§ÉúµÄÑ§ºÅ£º";
+    std::cout<<"è¯·è¾“å…¥è¯¥å­¦ç”Ÿçš„å­¦å·ï¼š";
     std::cin>>Stu.series;
     std::cout<<std::endl;
-    std::cout<<"ĞÕÃû£º";
+    std::cout<<"å§“åï¼š";
     std::cin>>Stu.name;
     std::cout<<std::endl;
-    std::cout<<"ÓïÎÄ³É¼¨£º";
+    std::cout<<"è¯­æ–‡æˆç»©ï¼š";
     std::cin>>Stu.Chinese;
     std::cout<<std::endl;
-    std::cout<<"Ó¢Óï³É¼¨£º";
+    std::cout<<"è‹±è¯­æˆç»©ï¼š";
     std::cin>>Stu.English;
     std::cout<<std::endl;
-    std::cout<<"ÊıÑ§³É¼¨£º";
+    std::cout<<"æ•°å­¦æˆç»©ï¼š";
     std::cin>>Stu.Math;
     std::cout<<std::endl;
     Stu.Average = (Stu.Chinese+Stu.English+Stu.Math)/3.0;
@@ -242,9 +245,9 @@ template<class ElemType>
 void SqList<ElemType>::dispStu()
 {
     int i;
-    if(length==0){std::cout<<"¿Õ±í"<<std::endl;return;}
-    std::cout<<"´òÓ¡Ñ§ÉúĞÅÏ¢"<<std::endl;
-    std::cout<<" Ñ§ºÅ   ĞÕÃû   ÓïÎÄ   Ó¢Óï   ÊıÑ§   Æ½¾ù·Ö   ×Ü·Ö"<<std::endl;
+    if(length==0){std::cout<<"ç©ºè¡¨"<<std::endl;return;}
+    std::cout<<"æ‰“å°å­¦ç”Ÿä¿¡æ¯"<<std::endl;
+    std::cout<<" å­¦å·   å§“å   è¯­æ–‡   è‹±è¯­   æ•°å­¦   å¹³å‡åˆ†   æ€»åˆ†"<<std::endl;
     for(i=0;i<length;i++){
         std::cout<<" "<<std::setw(2)<<elem[i].series
         <<"   "<<std::setw(6)<<std::setiosflags(std::ios::right)<<elem[i].name
@@ -254,4 +257,22 @@ void SqList<ElemType>::dispStu()
         <<"    "<<std::setiosflags(std::ios::right)<<std::setw(3)<<std::setprecision(5)<<elem[i].Average
         <<"   "<<std::setiosflags(std::ios::right)<<elem[i].Total<<std::endl;
     }
+}
+
+template<class ElemType>
+SqList<ElemType> SqList<ElemType>::operator+(SqList<ElemType>&L2)
+{//å¹¶è¿ç®—
+    SqList* pl1, *pl2;
+    ElemType e;
+    int i;
+    if(length>L2.length){pl2=this;pl1=&L2;}
+    else {pl1=this;pl2=&L2;}//æŒ‡é’ˆl1é•¿åº¦å°äºl2
+    for(i=0;i<pl1->length;i++){
+        if(compareElem(pl1->elem[i],equal)){pl1->deleteElem(i, e);--i;}//ç§»é™¤å…ƒç´ ï¼Œå¾ªç¯å˜é‡å‡å°
+        else continue;
+    }
+    for(i=0;i<pl2->length;i++){
+        pl1->insertElem(pl2->elem[i], 1);
+    }
+    return *pl1;
 }
