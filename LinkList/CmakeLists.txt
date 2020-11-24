@@ -1,0 +1,11 @@
+cmake_minimum_required(VERSION 3.0.0)
+
+project(linklist VERSION 0.1.0)
+
+add_library(linklist_library STATIC linkList.cpp)
+
+target_include_directories(linklist_library PUBLIC ${PROJECT_SOURCE_DIR})
+
+add_executable(linklist_binary main.cpp)
+
+target_link_libraries(linklist_binary linklist_library)
