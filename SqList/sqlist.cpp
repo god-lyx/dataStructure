@@ -1,9 +1,8 @@
-#include <sqlist.h>
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
-#include<iomanip>
-#include"sqlist.h"
+#include <iomanip>
+#include "sqlist.h"
 #include <iomanip>
 
 struct Student
