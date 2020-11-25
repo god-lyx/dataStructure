@@ -1,5 +1,3 @@
-# DataStructure
-Hard coding on my own on data structure in C++
+# 数据结构实验渡劫
 
-## 数据结构实验
-协作、共赢、进步、奥里给
+自学的cpp，用类和模版写的，编译运行用的cmake，更新中
