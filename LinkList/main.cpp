@@ -1,35 +1,35 @@
 #include<iostream>
-#include"linkList.cpp"
+#include"linkList.h"
 using namespace std;
 
 int main(){
     int option, i, e, output;
     LinkList<int> L;
     while(1){
-    cout<<"**************å•é“¾è¡¨æµ‹è¯•**************"<<endl;
-    cout<<"ã€1ã€‘å–éžå¾ªçŽ¯å•é“¾è¡¨çš„ç¬¬iä¸ªç»“ç‚¹ï¼›"<<endl;
-    cout<<"ã€2ã€‘åœ¨ç¬¬iä¸ªç»“ç‚¹å‰æ’å…¥æ•°æ®åŸŸä¸ºeçš„ç»“ç‚¹"<<endl;
+    cout<<"**************µ¥Á´±í²âÊÔ**************"<<endl;
+    cout<<"¡¾1¡¿È¡·ÇÑ­»·µ¥Á´±íµÄµÚi¸ö½áµã£»"<<endl;
+    cout<<"¡¾2¡¿ÔÚµÚi¸ö½áµãÇ°²åÈëÊý¾ÝÓòÎªeµÄ½áµã"<<endl;
 
-    cout<<"è¯·è¾“å…¥æ“ä½œç ï¼š";
+    cout<<"ÇëÊäÈë²Ù×÷Âë£º";
     cin>>option;
 
     switch(option){
         case 1:
-        cout<<"è¯·è¾“å…¥å–å‡ºå…ƒç´ çš„ä½åºï¼š";
+        cout<<"ÇëÊäÈëÈ¡³öÔªËØµÄÎ»Ðò£º";
         cin>>i;
 
         if(output = L(i))
-            cout<<"ç¬¬iä¸ªç»“ç‚¹çš„æ•°æ®åŸŸä¸ºï¼š"<<output<<endl;
-        else cout<<"æ“ä½œå¤±è´¥ï¼"<<endl;
+            cout<<"µÚi¸ö½áµãµÄÊý¾ÝÓòÎª£º"<<output<<endl;
+        else cout<<"²Ù×÷Ê§°Ü£¡"<<endl;
         continue;
 
         case 2:
-        cout<<"è¾“å…¥æ’å…¥ä½åºï¼š";
+        cout<<"ÊäÈë²åÈëÎ»Ðò£º";
         cin>>i;
-        cout<<"è¾“å…¥æ•°æ®åŸŸï¼š";
+        cout<<"ÊäÈëÊý¾ÝÓò£º";
         cin>>e;
 
-        if(!L.insertNode(i, e))cout<<"æ“ä½œå¤±è´¥ï¼"<<endl;
+        if(!L.insertNode(i, e))cout<<"²Ù×÷Ê§°Ü£¡"<<endl;
         continue;
     }
 }
