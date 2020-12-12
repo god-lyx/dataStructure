@@ -1,5 +1,6 @@
-#define LISTMAXSIZE 100//é»˜è®¤æœ€å¤§é•¿åº¦100
-#define LISTINCREMENT 10//é»˜è®¤æ‰©å®¹10
+#pragma once
+#define LISTMAXSIZE 100//Ä¬ÈÏ×î´ó³¤¶È100
+#define LISTINCREMENT 10//Ä¬ÈÏÀ©Èİ10
 
 template<typename ElemType>int equal(ElemType e1, ElemType e2);
 template<typename ElemType>int greaterThan(ElemType e1, ElemType e2);
@@ -7,4 +8,260 @@ template<typename ElemType>int lessThan(ElemType e1, ElemType e2);
 
 template<class ElemType>
 class SqList;
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+#include <iomanip>
+#include "sqlist.h"
+#include <iomanip>
+using namespace std;
+struct Student{
+    int series = 0;//Ñ§ºÅ
+    std::string name = "";//ĞÕÃû
+    int Chinese = 0;
+    int English = 0;
+    int Math = 0;
+    float Average = 0;
+    int Total = 0;
+};//¶¨ÒåÑ§ÉúÊı¾İÀàĞÍ½á¹¹Ìå
+
+
+template<class ElemType>
+class SqList{
+private:
+    ElemType* elem;//Ö¸ÏòÔªËØµØÖ·
+    int            length;//Ë³Ğò±íµ±Ç°³¤¶È
+    int            listsize;//×î´óÈİÁ¿
+public:
+    SqList();//ÎªË³Ğò±í·ÖÅäÄÚ´æ
+    int insertElem(ElemType e, int i);//ÔÚµÚiÎ»Ö®Ç°²åÈëÔªËØe
+    int listEmpty();//ÅĞ¶ÏÏßĞÔ±íÊÇ·ñÎª¿Õ
+    int getElem(int i, ElemType& e);//È¡µÚi¸öÔªËØ£»
+    int compareElem(ElemType e, int (*compare)(ElemType, ElemType));//·µ»ØµÚÒ»¸öÓëeÂú×ãcompare¹ØÏµµÄÔªËØĞòºÅ
+    int getPrevious(ElemType e, ElemType& e2);
+    int getNext(ElemType e, ElemType& e2);//È¡Ä³ÔªËØµÄÇ°Çı¡¢ºó¼Ì£¬ÓÃe2·µ»Ø   
+    int deleteElem(int i, ElemType& e);//É¾³ıµÚi¸öÔªËØ
+    int inheratateList(SqList<ElemType>& L2);//½«±¾Ë³Ğò±í¸³Öµ¸øÁíÒ»¸öË³Ğò±í
+    int emptyList();//ÖÃ¿ÕË³Ğò±í
+    int spawnList(int = 8/*Ä¬ÈÏ³¤¶ÈÎª8*/);
+    int inputList(int = 8);
+    SqList<ElemType> operator+(SqList<ElemType>& L);//Ëã·ûÖØÔØ£¬²¢ÔËËã
+    //SqList<ElemType> operator^(const SqList<ElemType>& L);//Ëã·ûÖØÔØ£¬½»ÔËËã
+    //SqList<ElemType> operator-(const SqList<ElemType>& L);//Ëã·ûÖØÔØ£¬²îÔËËã
+    void dispList();//´òÓ¡Ë³Ğò±í
+    int inputStudent(ElemType& Stu);//ÊäÈëµ¥¸öÑ§ÉúµÄĞÅÏ¢£¬ÒıÓÃ´«µİ¸øStu
+    void dispStu();//Ã»°ì·¨ Ö»ÄÜµ¥¶À¸øÑ§Éú±íĞ´¸ö´òÓ¡º¯ÊıÁË¡­¡­
+};
+
+template<class ElemType>
+SqList<ElemType>::SqList(){
+    listsize = LISTMAXSIZE;
+    elem = new ElemType[listsize];
+    length = 0;
+}
+
+
+template<class ElemType>
+int SqList<ElemType>::insertElem(ElemType e, int i){
+    ElemType* newbase; int istart, iend;
+    if (i<1 || i>length + 1)return 0;//ÔªËØÎ»ÖÃ²»ºÏ·¨
+    if (length + 1 > LISTMAXSIZE)
+    {//³¬³ö×î´óÈİÁ¿£¬À©Èİ
+        newbase = new ElemType[length + LISTINCREMENT];
+        if (!newbase)return 0;//À©ÈİÊ§°Ü£¬²åÈëÊ§°Ü
+        for (istart = 0; istart < length; istart++) {
+            newbase[istart] = elem[istart];
+            delete[] elem;//É¾³ıÔ­ÄÚ´æ
+            elem = newbase;//elemÖ¸ÏòĞÂÄÚ´æ¿Õ¼ä
+            listsize += LISTINCREMENT;
+        }
+    }
+    for (iend = length; iend >= i; iend--) {
+        elem[iend] = elem[iend - 1];
+    }//iÖ®ºóÔªËØÏòºóÒÆÎ»
+    elem[i - 1] = e;
+    ++length;
+    return 1;//²åÈë³É¹¦
+}
+
+template<class ElemType>
+int SqList<ElemType>::listEmpty() {
+    if (length == 0) return 1;//¿Õ
+    return 0;//·Ç¿Õ
+}
+
+template<class ElemType>
+int SqList<ElemType>::getElem(int i, ElemType& e){
+    if (i<1 || i>length)return 0;//Î»ÖÃÎŞĞ§
+    e = elem[i - 1];
+    return 1;//»ñÈ¡³É¹¦
+}
+
+template<typename ElemType>
+int equal(ElemType e1, ElemType e2) {
+    return (e1 == e2) ? (1) : (0);
+}
+
+template<typename ElemType>
+int greaterThan(ElemType e1, ElemType e2) {
+    return (e1 > e2) ? (1) : (0);
+}
+
+template<typename ElemType>
+int lessThan(ElemType e1, ElemType e2) {
+    return (e1 < e2) ? (1) : (0);
+}
+
+template<class ElemType>
+int SqList<ElemType>::compareElem(ElemType e, int (*compare)(ElemType, ElemType)){
+    int i;
+    for (i = 0; i < length; i++) {
+        if (compare(elem[i], e))return(i + 1);//·µ»ØÎ»ÖÃĞòºÅ£¨´Ó1¿ªÊ¼£©
+    }
+    return 0;//Ã»ÓĞÆ¥Åä
+}
+
+template<class ElemType>
+int SqList<ElemType>::getPrevious(ElemType e, ElemType& e2)
+{
+    int i = compareElem(e, equal) - 1;//Ç°Ò»¸öÔªËØµÄi
+    return getElem(i, e2);
+}
+
+template<class ElemType>
+int SqList<ElemType>::getNext(ElemType e, ElemType& e2)
+{
+    int i = compareElem(e, equal) + 1;//ºóÒ»¸öÔªËØµÄi
+    return getElem(i, e2);
+}
+
+template<class ElemType>
+int SqList<ElemType>::deleteElem(int i, ElemType& e){
+    int j;
+    if (i<1 || i>length)return 0;
+    getElem(i, e);
+    for (j = i - 1; j < length - 1; j++) {
+        elem[j] = elem[j + 1];
+    }
+    --length;
+    return 1;
+}
+
+template<class ElemType>
+int SqList<ElemType>::inheratateList(SqList<ElemType>& L2){
+    int i;
+    for (i = 0; i < length; i++)
+    {
+        if (L2.insertElem(elem[i], i + 1))continue;
+        else return 0;
+    }
+    return 1;
+}
+
+template<class ElemType>
+int SqList<ElemType>::emptyList(){
+    length = 0;
+    return 1;//ÓÃÒÑÓĞº¯ÊıÅĞ¶ÏÊÇ·ñÖÃ¿Õ
+}
+
+template<class ElemType>
+int SqList<ElemType>::spawnList(int l){
+    int i;
+    if (emptyList()) {
+        unsigned seed = std::time(0);
+        std::srand(seed);
+        for (i = 0; i < l; i++) {
+            insertElem(std::rand() % 100, 1);
+        }
+        return 1;
+    }
+    else return 0;
+}
+
+template<class ElemType>
+int SqList<ElemType>::inputList(int l){
+    int i, input;
+    emptyList();
+    for (i = 0; i < l; i++) {
+        std::cout << "ÇëÊäÈëµÚ" << i + 1 << "¸öÔªËØ£¨¹²" << l << "¸ö£©" << std::endl;
+        std::cin >> input;
+        if (insertElem(input, i + 1))continue;
+        else return 0;
+    }
+    return 1;
+}
+
+template<class ElemType>
+void SqList<ElemType>::dispList(){
+    int i;
+    if (length == 0) { std::cout << "¿Õ±í" << std::endl; return; }
+    std::cout << "µ±Ç°Ë³Ğò±íÔªËØÎª£º" << std::endl;
+    for (i = 0; i < length; i++) {
+        std::cout << "¡¾" << std::setw(2) << i + 1 << "¡¿";
+        //printf("¡¾%2d¡¿",i+1);
+    }
+    std::cout << std::endl;
+    for (i = 0; i < length; i++) {
+        std::cout << "  " << std::setw(2) << elem[i] << "  ";
+        //printf("  %2d  ",elem[i]);
+    }
+    printf("\n");
+
+}
+
+template<class ElemType>
+int SqList<ElemType>::inputStudent(ElemType& Stu){
+    std::cout << "ÇëÊäÈë¸ÃÑ§ÉúµÄÑ§ºÅ£º";
+    std::cin >> Stu.series;
+    std::cout << std::endl;
+    std::cout << "ĞÕÃû£º";
+    std::cin >> Stu.name;
+    std::cout << std::endl;
+    std::cout << "ÓïÎÄ³É¼¨£º";
+    std::cin >> Stu.Chinese;
+    std::cout << std::endl;
+    std::cout << "Ó¢Óï³É¼¨£º";
+    std::cin >> Stu.English;
+    std::cout << std::endl;
+    std::cout << "ÊıÑ§³É¼¨£º";
+    std::cin >> Stu.Math;
+    std::cout << std::endl;
+    Stu.Average = (Stu.Chinese + Stu.English + Stu.Math) / 3.0;
+    Stu.Total = Stu.Chinese + Stu.English + Stu.Math;
+    return 1;
+}
+
+template<class ElemType>
+void SqList<ElemType>::dispStu(){
+    int i;
+    if (length == 0) { std::cout << "¿Õ±í" << std::endl; return; }
+    std::cout << "´òÓ¡Ñ§ÉúĞÅÏ¢" << std::endl;
+    std::cout << " Ñ§ºÅ   ĞÕÃû   ÓïÎÄ   Ó¢Óï   ÊıÑ§   Æ½¾ù·Ö   ×Ü·Ö" << std::endl;
+    for (i = 0; i < length; i++) {
+        std::cout << " " << std::setw(2) << elem[i].series
+            << "   " << std::setw(6) << std::setiosflags(std::ios::right) << elem[i].name
+            << "   " << std::setiosflags(std::ios::right) << std::setw(3) << elem[i].Chinese
+            << "    " << std::setiosflags(std::ios::right) << std::setw(3) << elem[i].English
+            << "    " << std::setiosflags(std::ios::right) << std::setw(3) << elem[i].Math
+            << "    " << std::setiosflags(std::ios::right) << std::setw(3) << std::setprecision(5) << elem[i].Average
+            << "   " << std::setiosflags(std::ios::right) << elem[i].Total << std::endl;
+    }
+}
+
+template<class ElemType>
+SqList<ElemType> SqList<ElemType>::operator+(SqList<ElemType>& L2){//²¢ÔËËã
+    SqList<ElemType> L3;
+    int i = 0;
+    for (i = 0; i < length; i++) {
+        if (L2.compareElem(elem[i], equal))continue;
+        else (L3.insertElem(elem[i], 1));
+    }//LÖĞÔªËØÆ¥Åäµ½L2ÖĞÔªËØÔòÉ¾³ı
+    i = 0;
+    while (i < L2.length)
+    {
+        L3.insertElem(L2.elem[i], 1);
+        ++i;
+    }
+    return L3;
+}
 
