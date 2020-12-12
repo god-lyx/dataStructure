@@ -11,12 +11,12 @@ int main(){
     cout<<"当前顺序表为";
     L.dispList();
     printf("操作代码：");
-    scanf("%d", &option);
+    cin >> option;
     switch(option){
         case 1:
         printf("插入元素的位序，值：");
         printf("\n");
-        scanf("%d %d", &i, &e);
+        cin >> i >> e;
         if(L.insertElem(e, i))printf("操作成功！\n");
         else printf("操作失败。\n");
         printf("\n");
@@ -34,7 +34,7 @@ int main(){
 
         case 3:
         printf("取指定位序的元素，请输入该位置：");
-        scanf("%d", &i);
+        cin >> i;
         if(L.getElem(i, e))printf("取得第%d位元素%d\n", i, e);
         else printf("操作失败\n");
         continue;
