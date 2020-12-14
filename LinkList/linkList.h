@@ -24,7 +24,7 @@ public:
 	int length; //链表长度
 	LinkList();
 	//取非循环单链表的第i个结点
-	T operator()(int i) const;
+	T& operator()(int i) const;
 	//在第i个结点之前插入数据域为e的结点
 	Status insertNode(int i, T e);
 	//判断非循环单链表是否为空
@@ -39,6 +39,8 @@ public:
 	Status removeFirst(T e, int L = 1);
 	//删除重复的结点
 	Status removeRedundant();
+	//逆置
+	Status reverse();
 };
 
 //compare函数实例
@@ -71,10 +73,10 @@ LinkList<T>::LinkList()
 }
 
 template <class T>
-T LinkList<T>::operator()(int i) const //算符重载，返回第i位指针数据域
+T& LinkList<T>::operator()(int i) const//算符重载，返回第i位指针数据域
 {
-	if (!length || (i < 1 || i > length))
-		return ERROR;	 //长度为零或位序不合法，返回error
+	//if (!length || (i < 1 || i > length))
+	//	return ERROR;	 //长度为零或位序不合法，返回error
 	Node<T> *p = header; //循环开始于头节点
 	while (0 < i--)
 		p = p->next;
@@ -154,6 +156,20 @@ inline Status LinkList<T>::removeRedundant()
 		if (!(L2.compareNode(pObj->Data, equal)))//若去冗链表中不存在目标结点的数据域
 			L2.insertNode(L2.length + 1, pObj->Data);//将该结点插入最后一位
 		pObj = pObj->next;
+	}
+	*this = L2; 
+	return OK;
+}
+
+template<class T>
+inline Status LinkList<T>::reverse()
+{
+	LinkList<int> L2;
+	for (int j = 1; j <= length; j++) {
+		L2.insertNode(L2.length + 1, 0);//初始化空链表
+	}
+	for (int i = 1; i <= length; i++) {
+		L2(length - i + 1) = (*this)(i);
 	}
 	*this = L2;
 	return OK;
