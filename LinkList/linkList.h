@@ -169,8 +169,8 @@ inline Status LinkList<T>::reverse()
 		L2.insertNode(L2.length + 1, 0);//初始化空链表
 	}
 	for (int i = 1; i <= length; i++) {
-		L2(length - i + 1) = (*this)(i);
+		L2(length - i + 1) = (*this)(i);//简单交换
 	}
-	*this = L2;
+	*this = L2;//新表覆盖旧表
 	return OK;
 }
