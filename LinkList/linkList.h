@@ -146,19 +146,15 @@ inline Status LinkList<T>::removeFirst(T e, int L)
 
 template <class T>
 inline Status LinkList<T>::removeRedundant()
-{ //依次对每一位结点使用compareNode方法，
-	if (length <= 1)
-		return OK; //少于一个元素，没有重复
-	Node<T> *pObjNode = header->next;
-	int L = 1;
-	int frmv; //目标结点、扫描范围、删除指示
-	while (pObjNode->next)
-	{ //末尾指针之前
-		frmv = removeFirst(pObjNode->Data, L + 1);
-		if (frmv)
-			length--;
-		L++;
-		pObjNode = pObjNode->next;
+{
+	if (length < 0) return ERROR;//长度不合法
+	LinkList<T> L2;//构造空链表储存去冗结果
+	Node<T>* pObj = header->next;//第一位结点
+	for (int i = 1; i <= length; i++) {
+		if (!(L2.compareNode(pObj->Data, equal)))//若去冗链表中不存在目标结点的数据域
+			L2.insertNode(L2.length + 1, pObj->Data);//将该结点插入最后一位
+		pObj = pObj->next;
 	}
+	*this = L2;
 	return OK;
 }
