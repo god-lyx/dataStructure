@@ -1,0 +1,304 @@
+#pragma once
+#ifndef HEAD
+
+#include<stdio.h>
+#include<malloc.h>
+#include<iostream>
+#include<assert.h>
+#include<iomanip>
+#include<stdlib.h>
+#include <string.h>
+//////////////////////////////
+#include <ctime>
+typedef int Status;
+#define random(x) (rand()%x)
+//////////////////////////////
+using namespace std;
+
+#define STACK_SIZE 100  //linear table initial size
+#define STACKINCREMENT  10 //linear table increment size
+#define OVREFLOW 0
+#define OK 1
+#define ERROR 0
+#define Status int //return type
+
+template <class ElemType>
+class LinkStack
+{
+public:
+	class Stack_Node
+	{
+	public:
+		ElemType data;
+		Stack_Node* next;
+	};
+	typedef Stack_Node* Nodepointer;
+
+	//把栈置空
+	void clear();
+
+	//求栈中结点个数
+	int Get_Length();
+
+	//弹出栈顶结点
+	Status Pop(ElemType& e);
+
+	//压入数据为e的结点
+	void Push(ElemType e);
+
+	//以随机数填充i个结点
+	void Random_Fill_Stack(int i);
+
+	//打印所有节点
+	void Display_Stack();
+	
+	void GetTop();
+
+	//链栈构造函数
+	LinkStack();
+
+	//链栈析构函数
+	virtual ~LinkStack();
+
+	//empty
+	bool IsEmpty();
+
+protected:
+	Nodepointer top;
+	int length;
+};
+
+template<class ElemType>
+bool LinkStack<ElemType>::IsEmpty()
+{
+	return top == 0 ? 1 : 0;
+}
+
+template<typename ElemType>
+void LinkStack<ElemType>::clear()
+{
+	Nodepointer s;
+	while (top)
+	{
+		s = top;
+		top = top->next;
+		delete s;
+	}
+	top = NULL;
+}
+
+template<typename ElemType>
+int LinkStack<ElemType>::Get_Length()
+{
+	Nodepointer s;
+	int count = 0;
+	s = top;
+	while (s)
+	{
+		count++;
+		s = s->next;
+	}
+	return count;
+}
+
+template<typename ElemType>
+Status LinkStack<ElemType>::Pop(ElemType& e)
+{
+	Nodepointer s = top;
+	if (!top) return ERROR;
+	e = top->data;
+	top = top->next;
+	delete s;
+	return OK;
+}
+
+template<typename ElemType>
+void LinkStack<ElemType>::Push(ElemType e)
+{
+	Nodepointer s;
+	s = new Stack_Node;
+	s->data = e;
+	s->next = top;
+	top = s;
+}
+
+template<typename ElemType>
+void LinkStack<ElemType>::Random_Fill_Stack(int i)
+{
+	for (int count = 0; count < i; count++)
+	{
+		Push(random(100));
+	}
+}
+
+template<typename ElemType>
+void LinkStack<ElemType>::Display_Stack()
+{
+	Nodepointer s = top;
+	cout << "Here is all Stack Data:" << endl;
+	while (s)
+	{
+		cout << "->" << s->data;
+		s = s->next;
+	}
+	cout << endl;
+	return;
+}
+template <typename ElemType>
+void LinkStack <ElemType>::GetTop()
+{
+	if (IsEmpty())
+	{
+		cout << "栈为空！\n请重新开始！" << endl;
+		exit(1);
+	}
+	cout << "栈顶数据域为：" << top->data;
+}
+
+template<typename ElemType>
+LinkStack<ElemType>::LinkStack()
+{
+	top = NULL;
+}
+
+template<typename ElemType>
+LinkStack<ElemType>::~LinkStack()
+{
+	clear();
+}
+
+template<typename ElemType>
+void base1(LinkStack<ElemType>& S)
+{
+	cout << "**********在栈顶压入一个元素***********";
+	ElemType n;
+	cout << "请输入想压的元素：" << endl;
+	cin >> n;
+	S.Push(n);
+	cout << "此时栈为：" << endl;
+	S.Display_Stack();
+	cout << "*****************************************\n";
+}
+
+template<typename ElemType>
+void base2(LinkStack<ElemType>& S)
+{
+	cout << "**********弹出栈顶元素**********";
+	ElemType e;
+	S.Pop(e);
+	cout << "弹出的元素为：" << e << endl;
+	cout << "*****************************************\n";
+}
+
+template<typename ElemType>
+void base3(LinkStack<ElemType>& S)
+{
+	cout << "**********求栈中元素的个数**********\n";
+	cout << "顺序表元素个数为:" << S.Get_Length() << endl;
+	cout << "*****************************************\n";
+}
+
+template<typename ElemType>
+void base4(LinkStack<ElemType>& S)
+{
+	cout << "**********判断链栈是否为空**********\n";
+	cout << "当前顺序表";
+	if (S.IsEmpty()==0)
+	{
+		cout << "不";
+	}
+	cout << "为空" << endl;
+	cout << "*****************************************\n";
+}
+
+template<typename ElemType>
+void base5(LinkStack<ElemType>& S)
+{
+	cout << "***********读栈顶结点的数据域**********\n";
+	S.GetTop();
+	cout << "*****************************************\n";
+}
+
+/*cout << "*******************把一个顺序表赋值给另一个顺序表*********************\n";
+	Sqlist<int> S1;
+	S1.ListInsert_Sq(1, 41);
+	S1.ListInsert_Sq(1, 42);
+	cout << "赋值顺序表S1为:" << endl;
+	show(S1);
+	S = S1;
+	cout << "被赋值顺序表为S:" << endl;
+	show(S);
+	cout << "**********************************" << endl;*/
+
+template<typename ElemType>
+void base6(LinkStack<ElemType>& S)
+{
+	cout << "**********把一个链栈赋值给另一个**********\n";
+	LinkStack<int> S1;
+	S1.Push ( 41);
+	S1.Push ( 42);
+	cout << "赋值栈S1为:" << endl;
+	S1.Display_Stack();
+	S = S1;
+	cout << "被赋值栈S为:" << endl;
+	S.Display_Stack();
+	cout << "*****************************************\n";
+}
+
+template<typename ElemType>
+void base7(LinkStack<ElemType>& S)
+{
+	cout << "******************把栈置空****************" << endl;
+	S.clear();
+	cout << "此时栈为：" << endl;
+	S.Display_Stack();
+	cout << "元素个数为：" << S.Get_Length() << endl;
+	cout << "**********************************" << endl;
+}
+/* template<typename T>
+void mod11(Sqlist<T>& S)
+{
+	S.clear();
+	cout << "***************随机生成顺序表（元素值为0到99之间的整数）*******************" << endl;
+	int i;
+	i = rand() % 20 + 1;
+	for (int j = 1; j <= i; j++)
+	{
+		S.ListInsert_Sq(1, rand() % 100 + 1);
+	}
+	cout << "随机生成的顺序表为:" << endl;
+	show(S);
+	cout << "**********************************" << endl;
+}*/
+template<typename ElemType>
+void base8(LinkStack<ElemType>& S)
+{
+	S.clear();
+	cout << "**********随机生成链栈（元素值为0到99之间的整数）***********\n";
+	int i;
+	i = rand() % 20 + 1;
+	for (int j = 1; j <= i; j++)
+	{
+		S.Push( rand() % 100 + 1 );
+	}
+	S.Display_Stack();
+	cout << "*****************************************\n";
+}
+
+template<typename ElemType>
+void base9(LinkStack<ElemType>& S)
+{
+	cout << "***********用已有链栈初始化另一个*************\n";
+	cout << "已有的栈:" << endl;
+	S.Display_Stack();
+	LinkStack<int> S1(S);
+	cout << "初始化的一个链栈:" << endl;
+	S1.Display_Stack();
+	cout << "*****************************************\n";
+}
+
+
+
+
+
+#endif
