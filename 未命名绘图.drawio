@@ -1,1 +1,58 @@
-<mxfile host="app.diagrams.net" modified="2021-05-23T07:45:58.961Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36" version="14.3.0" etag="LcGOzXK5T9--CeHAZf8_" type="github"><diagram id="Jp7WL5PZOj6oYNrJQ0lG">UzV2zq1wL0osyPDNT0nNUTV2VTV2LsrPL4GwciucU3NyVI0MMlNUjV1UjYwMgFjVyA2HrCFY1qAgsSg1rwSLBiADYTaQg2Y1AA==</diagram></mxfile>
+<mxfile host="app.diagrams.net" modified="2021-05-23T09:31:19.965Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36" etag="qGqAzNmf7oBPZBTk1dxU" version="14.3.0" type="github">
+  <diagram id="Jp7WL5PZOj6oYNrJQ0lG" name="第 1 页">
+    <mxGraphModel dx="1038" dy="969" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1010" pageHeight="440" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="xddvmd_XLCGllFKhd0Ul-1" value="&lt;font style=&quot;font-size: 18px&quot;&gt;当前党史教育的三大痛点&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="140" y="-300.4" width="140" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="xddvmd_XLCGllFKhd0Ul-2" value="&lt;font style=&quot;font-size: 18px&quot;&gt;方式空洞化&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="10" y="-335.4" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="xddvmd_XLCGllFKhd0Ul-3" value="&lt;font style=&quot;font-size: 18px&quot;&gt;模式形式化&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="10" y="-265.4" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="xddvmd_XLCGllFKhd0Ul-4" value="&lt;span style=&quot;font-size: 18px&quot;&gt;学习矛盾化&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="10" y="-195.39999999999998" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="xddvmd_XLCGllFKhd0Ul-10" value="&lt;font style=&quot;font-size: 18px&quot;&gt;党史教育&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="490" y="-270.4" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="xddvmd_XLCGllFKhd0Ul-11" value="&lt;font style=&quot;font-size: 18px&quot;&gt;红色资源开发&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="732" y="-130" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="xddvmd_XLCGllFKhd0Ul-12" value="&lt;span style=&quot;font-size: 18px&quot;&gt;IP运营&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="712" y="-420" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="xddvmd_XLCGllFKhd0Ul-14" value="" style="html=1;shadow=0;dashed=0;align=center;verticalAlign=middle;shape=mxgraph.arrows2.jumpInArrow;dy=15;dx=38;arrowHead=55;" vertex="1" parent="1">
+          <mxGeometry x="530" y="-410" width="172" height="134.6" as="geometry" />
+        </mxCell>
+        <mxCell id="xddvmd_XLCGllFKhd0Ul-15" value="" style="html=1;shadow=0;dashed=0;align=center;verticalAlign=middle;shape=mxgraph.arrows2.jumpInArrow;dy=15;dx=38;arrowHead=55;rotation=-105;" vertex="1" parent="1">
+          <mxGeometry x="542.02" y="-226.07" width="147.88" height="177.11" as="geometry" />
+        </mxCell>
+        <mxCell id="xddvmd_XLCGllFKhd0Ul-16" value="" style="html=1;shadow=0;dashed=0;align=center;verticalAlign=middle;shape=mxgraph.arrows2.jumpInArrow;dy=15;dx=38;arrowHead=55;rotation=135;" vertex="1" parent="1">
+          <mxGeometry x="774.49" y="-351.92" width="179.94" height="232.2" as="geometry" />
+        </mxCell>
+        <mxCell id="xddvmd_XLCGllFKhd0Ul-19" value="" style="shape=singleArrow;direction=south;whiteSpace=wrap;html=1;rotation=-90;" vertex="1" parent="1">
+          <mxGeometry x="350" y="-324.26" width="67.76" height="167.72" as="geometry" />
+        </mxCell>
+        <mxCell id="xddvmd_XLCGllFKhd0Ul-20" value="&lt;font style=&quot;font-size: 18px&quot;&gt;理论创新&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="312" y="-310.4" width="110" height="50.4" as="geometry" />
+        </mxCell>
+        <mxCell id="xddvmd_XLCGllFKhd0Ul-21" value="&lt;span style=&quot;font-size: 18px&quot;&gt;互联网加持&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="312" y="-220.8" width="110" height="50.4" as="geometry" />
+        </mxCell>
+        <mxCell id="xddvmd_XLCGllFKhd0Ul-22" value="&lt;span style=&quot;font-size: 18px&quot;&gt;IP构建&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="312" y="-370.4" width="110" height="50.4" as="geometry" />
+        </mxCell>
+        <mxCell id="xddvmd_XLCGllFKhd0Ul-23" value="&lt;span style=&quot;font-size: 18px&quot;&gt;调查和统计&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="312" y="-161.13" width="110" height="50.4" as="geometry" />
+        </mxCell>
+        <mxCell id="xddvmd_XLCGllFKhd0Ul-25" value="&lt;font style=&quot;font-size: 24px&quot;&gt;三位一体的新模式&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="640" y="-282.37" width="220" height="93.93" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
